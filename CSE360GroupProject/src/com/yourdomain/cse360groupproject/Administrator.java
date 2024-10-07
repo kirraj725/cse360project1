@@ -11,7 +11,26 @@ public class Administrator extends User{
 	
 	
 	public void inviteUser(User user) {
+		//generate one time code for new user
 		
+		User newUser = user;
+		
+		
+		
+		System.out.print("Select the roles for the new user: ");
+		//set user input equal to roleInput string
+		//string roleInput = 
+		/*switch(roleInput) {
+		//need to add button control stuff here
+			case "Student":
+				
+			case "Instructor":
+				
+			case "Administrator":
+		
+		}*/
+		
+		userlist.add(newUser);
 		
 	}
 	
