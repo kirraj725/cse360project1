@@ -1,5 +1,4 @@
 package com.yourdomain.cse360groupproject;
-import java.time.LocalDateTime;
 
 public class User {
 	//attributes
@@ -11,7 +10,6 @@ public class User {
 	private String username;
 	private int password;
 	private boolean isNewUser;
-	private boolean forgotPassword;
 	private TempUserCredentials tempCredentials;
 	
 	//default constructor
@@ -24,7 +22,7 @@ public class User {
 		username = "";
 		password = 0;
 		isNewUser = true;
-		forgotPassword = false;
+		tempCredentials = new TempUserCredentials();
 	}
 	
 	//overload constructor
@@ -37,7 +35,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 		isNewUser = true;
-		forgotPassword = false;
+		tempCredentials = new TempUserCredentials();
 	}
 	
 	//first name getter

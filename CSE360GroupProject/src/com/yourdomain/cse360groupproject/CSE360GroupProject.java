@@ -4,11 +4,11 @@ public class CSE360GroupProject {
     {
 		//testing 
 		
-//		User newUser = new User("jane", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", 12345);
-//		System.out.println(newUser.getFirstName());
-//		System.out.println(newUser.getLastName());
-//		System.out.println(newUser.getEmailAddress());
-//		System.out.println(newUser.getPassword());
+		User newUser = new User("jane", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", 12345);
+		System.out.println(newUser.getFirstName());
+		System.out.println(newUser.getLastName());
+		System.out.println(newUser.getEmailAddress());
+		System.out.println(newUser.getPassword());
 		
     }
     
