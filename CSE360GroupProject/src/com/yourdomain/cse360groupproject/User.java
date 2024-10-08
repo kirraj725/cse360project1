@@ -10,7 +10,9 @@ public class User {
 	private String username;
 	private int password;
 	private boolean isNewUser;
+	private boolean isTempPassword;
 	private TempUserCredentials tempCredentials;
+	
 	
 	//default constructor
 	public User() {
@@ -22,6 +24,7 @@ public class User {
 		username = "";
 		password = 0;
 		isNewUser = true;
+		isTempPassword = true;
 		tempCredentials = new TempUserCredentials();
 	}
 	
@@ -35,6 +38,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 		isNewUser = true;
+		isTempPassword = true;
 		tempCredentials = new TempUserCredentials();
 	}
 	
