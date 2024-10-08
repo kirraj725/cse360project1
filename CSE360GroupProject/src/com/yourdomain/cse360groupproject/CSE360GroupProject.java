@@ -4,7 +4,7 @@ public class CSE360GroupProject {
     {
 		//testing 
 		
-		User newUser = new User("jane", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", 12345);
+		User newUser = new User("jane", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", 12345, "student");
 		System.out.println(newUser.getFirstName());
 		System.out.println(newUser.getLastName());
 		System.out.println(newUser.getEmailAddress());

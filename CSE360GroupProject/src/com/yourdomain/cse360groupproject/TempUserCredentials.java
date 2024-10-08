@@ -8,7 +8,7 @@ public class TempUserCredentials {
 	
 	//default constructor
 	public TempUserCredentials() {
-		this.oneTimePassword = 0;
+		this.oneTimePassword = createOneTimePassword();
 		this.expiryDateTime = LocalDateTime.now().plusDays(1);
 	}
 	
@@ -18,7 +18,7 @@ public class TempUserCredentials {
 	}
 	
 	//creates one time password
-	public void createOneTimePassword() {
+	public int createOneTimePassword() {
 		Random random = new Random();
 		String passwordString = "";
 		
@@ -29,6 +29,7 @@ public class TempUserCredentials {
 			passwordString += numStr;
 		}
 		oneTimePassword = Integer.parseInt(passwordString);	
+		return oneTimePassword;
 	}
 	
 	//date and time getter
