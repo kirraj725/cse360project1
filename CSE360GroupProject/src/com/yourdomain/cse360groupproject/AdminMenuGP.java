@@ -15,7 +15,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.layout.GridPane;
 
 
-public class AdminInvGPreal extends Application {
+public class AdminMenuGP extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -24,57 +24,62 @@ public class AdminInvGPreal extends Application {
 			AnchorPane root = new AnchorPane();
 
 			//set stage title
-			primaryStage.setTitle("Admin Invitation");
+			primaryStage.setTitle("Admin Menu");
 		    
 			//set stage max height and width
 			primaryStage.setMaxHeight(400);
 			primaryStage.setMaxWidth(400);
 			
 			//text prompt for role invitation
-			Text promptTxt = new Text("Pick a Temporary Role for Invitation:");
+			Text promptTxt = new Text("Admin Menu");
+			Font font = Font.font("Verdana", FontWeight.BOLD, 20);
+			promptTxt.setFont(font);
 			//text prompt for email
-			Text emailTxt = new Text("Email:");
-			TextField boxTxt = new TextField();
-			
+						
 			//button event for admin, instructor, student, send, and back
-		    Button btnAdmin = new Button();
-			Button btnInstr = new Button();
-			Button btnStud = new Button();
+		    Button btnDelete = new Button();
+			Button btnReset = new Button();
+			Button btnInvitation = new Button();
+			Button btnAddRemove = new Button();
+			/*
 			Button btnSend = new Button();
 			Button btnBack = new Button();
-	        btnAdmin.setText("Admin");
-	        btnInstr.setText("Instructor");
-	        btnStud.setText("Student");
+			*/
+	        btnDelete.setText("Delete User Account");
+	        btnReset.setText("Reset Password");
+	        btnInvitation.setText("Admin Invitation");
+	        btnAddRemove.setText("Add/Remove Roles");
+	        /*
 	        btnSend.setText("Send");
 	        btnBack.setText("Back");
+	        */
 	        
 	        //button positioning 
-	        btnAdmin.setLayoutX(50);
-	        btnAdmin.setLayoutY(100);
-	        btnInstr.setLayoutX(150);
-	        btnInstr.setLayoutY(100);
-	        btnStud.setLayoutX(250);
-	        btnStud.setLayoutY(100);
-	        btnSend.setLayoutX(165);
-	        btnSend.setLayoutY(250);
-	        btnBack.setLayoutX(165);
-	        btnBack.setLayoutY(325);
 	        promptTxt.setLayoutX(100);
 	        promptTxt.setLayoutY(50);
-	        emailTxt.setLayoutX(75);
-	        emailTxt.setLayoutY(200);
-	        boxTxt.setLayoutX(115);
-	        boxTxt.setLayoutY(185);
-	        
+	        btnDelete.setLayoutX(135);
+	        btnDelete.setLayoutY(75);
+	        btnReset.setLayoutX(135);
+	        btnReset.setLayoutY(125);
+	        btnInvitation.setLayoutX(135);
+	        btnInvitation.setLayoutY(175);
+	        btnAddRemove.setLayoutX(135);
+	        btnAddRemove.setLayoutY(225);
+	        /*
+	        btnBack.setLayoutX(165);
+	        btnBack.setLayoutY(325);
+	        */
+	      	        	        
 	        //adds the button and text prompts into the root
-	        root.getChildren().add(btnAdmin);
-	        root.getChildren().add(btnInstr);
-	        root.getChildren().add(btnStud);
+	        root.getChildren().add(btnDelete);
+	        root.getChildren().add(btnReset);
+	        root.getChildren().add(btnInvitation);
+	        root.getChildren().add(btnAddRemove);
 	        root.getChildren().add(promptTxt);
-	        root.getChildren().add(emailTxt);
-	        root.getChildren().add(boxTxt);
+	        /*
 	        root.getChildren().add(btnSend);
 	        root.getChildren().add(btnBack);
+	        */
 	        
 	        //HBox hbox = new HBox(btnAdmin, btnInstr, btnStud);
 	        /*
