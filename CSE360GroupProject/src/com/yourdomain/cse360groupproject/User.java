@@ -115,5 +115,15 @@ public class User {
 		password = newPassword;
 	}
 	
+	//role getter
+	public String getRole() {
+		return role;
+	}
+						
+	//role setter
+	public void setRole(String newRole) {
+		role = newRole;
+	}
+	
 }
 

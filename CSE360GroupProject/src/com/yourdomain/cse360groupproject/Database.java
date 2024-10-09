@@ -1,6 +1,8 @@
 package com.yourdomain.cse360groupproject;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
 	// JDBC driver name and database URL
@@ -88,63 +90,58 @@ public class Database {
 	    return false; // If an error occurs, assume user doesn't exist
 	}
     
-    public void displayUsersByAdmin() throws SQLException {
-        String sql = "SELECT * FROM cse360users WHERE role = 'admin'";  // Filter by role
-        Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery(sql);
-
-        while (rs.next()) {
-        	// Retrieve by column name 
-        	String firstName =  rs.getString("firstName");
-			String preferredName = rs.getString("preferredName");
-			String middleName = rs.getString("middleName");
-			String lastName =  rs.getString("lastName");
-			String  emailAddress = rs.getString("email"); 
-			int password  = rs.getInt("password");  
-			String role = rs.getString("role");  
-
-			// Display values 
-			System.out.print("First Name: " + firstName); 
-			System.out.print(", Last Name: " + lastName);
-			System.out.print(", Preferred Name: " + preferredName);
-			System.out.print(", Middle Name: " + middleName);
-			System.out.print(", Email: " + emailAddress); 
-			System.out.print(", First: " + password); 
-			System.out.println(", Role: " + role);
-        }
-    }
+//    public void displayUsersByAdmin() throws SQLException {
+//        String sql = "SELECT * FROM cse360users WHERE role = 'admin'";  // Filter by role
+//        Statement stmt = connection.createStatement();
+//        ResultSet rs = stmt.executeQuery(sql);
+//
+//        while (rs.next()) {
+//        	// Retrieve by column name 
+//        	String firstName =  rs.getString("firstName");
+//			String preferredName = rs.getString("preferredName");
+//			String middleName = rs.getString("middleName");
+//			String lastName =  rs.getString("lastName");
+//			String  emailAddress = rs.getString("email"); 
+//			int password  = rs.getInt("password");  
+//			String role = rs.getString("role");  
+//
+//			// Display values 
+//			System.out.print("First Name: " + firstName); 
+//			System.out.print(", Last Name: " + lastName);
+//			System.out.print(", Preferred Name: " + preferredName);
+//			System.out.print(", Middle Name: " + middleName);
+//			System.out.print(", Email: " + emailAddress); 
+//			System.out.print(", First: " + password); 
+//			System.out.println(", Role: " + role);
+//        }
+//    }
 
     
-    public void displayUsersByUser() throws SQLException{
-		String sql = "SELECT * FROM cse360users"; 
-		Statement stmt = connection.createStatement();
-		ResultSet rs = stmt.executeQuery(sql); 
+    public List<String[]> getUsersByUser() throws SQLException{
+       	List<String[]> users = new ArrayList<>();
+    		String sql = "SELECT * FROM cse360users";
+    		Statement stmt = connection.createStatement();
+    		ResultSet rs = stmt.executeQuery(sql);
+    		while(rs.next()) {
+    			// Retrieve by column name
+    			String preferredName =  rs.getString("preferredName");
+    			String  username = rs.getString("username");
+    			String role = rs.getString("role"); 
+    			// Display values
+    			System.out.print(", Preferred Name: " + preferredName);
+    			System.out.print(", Username: " + username);
+    			System.out.println(", Role: " + role);
+    			
+    			users.add(new String[] {preferredName, username, role});
+    		}
+    		return users;
+    	}
 
-		while(rs.next()) { 
-			// Retrieve by column name 
-			String firstName =  rs.getString("firstName");
-			String preferredName = rs.getString("preferredName");
-			String middleName = rs.getString("middleName");
-			String lastName =  rs.getString("lastName");
-			String  emailAddress = rs.getString("email"); 
-			int password  = rs.getInt("password");  
-			String role = rs.getString("role");  
 
-			// Display values 
-			System.out.print("First Name: " + firstName); 
-			System.out.print(", Last Name: " + lastName);
-			System.out.print(", Preferred Name: " + preferredName);
-			System.out.print(", Middle Name: " + middleName);
-			System.out.print(", Email: " + emailAddress); 
-			System.out.print(", First: " + password); 
-			System.out.println(", Role: " + role); 
-		} 
-	}
-
-    public void closeConnection() {
-        try { if (statement != null) statement.close(); } 
-        catch (SQLException se2) { se2.printStackTrace(); }
-        try { if (connection != null) connection.close(); } 
-        catch (SQLException se2) { se2.printStackTrace(); }
-    }
+//    public void closeConnection() {
+//        try { if (statement != null) statement.close(); } 
+//        catch (SQLException se2) { se2.printStackTrace(); }
+//        try { if (connection != null) connection.close(); } 
+//        catch (SQLException se2) { se2.printStackTrace(); }
+//    }
 }
