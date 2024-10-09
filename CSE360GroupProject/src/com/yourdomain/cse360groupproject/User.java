@@ -1,5 +1,4 @@
 package com.yourdomain.cse360groupproject;
-import java.time.LocalDateTime;
 
 public class User {
 	//attributes
@@ -10,9 +9,11 @@ public class User {
 	private String emailAddress;
 	private String username;
 	private int password;
+	private String role;
 	private boolean isNewUser;
-	private boolean forgotPassword;
+	private boolean isTempPassword;
 	private TempUserCredentials tempCredentials;
+	
 	
 	//default constructor
 	public User() {
@@ -23,12 +24,14 @@ public class User {
 		emailAddress = "";
 		username = "";
 		password = 0;
+		role = "";
 		isNewUser = true;
-		forgotPassword = false;
+		isTempPassword = true;
+		tempCredentials = new TempUserCredentials();
 	}
 	
 	//overload constructor
-	public User(String firstName, String preferredName, String middleName, String lastName, String emailAddress, String username, int password) {
+	public User(String firstName, String preferredName, String middleName, String lastName, String emailAddress, String username, int password, String role) {
 		this.firstName = firstName;
 		this.preferredName = preferredName;
 		this.middleName = middleName;
@@ -36,8 +39,10 @@ public class User {
 		this.emailAddress = emailAddress;
 		this.username = username;
 		this.password = password;
+		this.role = role;
 		isNewUser = true;
-		forgotPassword = false;
+		isTempPassword = true;
+		tempCredentials = new TempUserCredentials();
 	}
 	
 	//first name getter
@@ -108,6 +113,16 @@ public class User {
 	//password setter
 	public void setPassword(int newPassword) {
 		password = newPassword;
+	}
+	
+	//role getter
+	public String getRole() {
+		return role;
+	}
+						
+	//role setter
+	public void setRole(String newRole) {
+		role = newRole;
 	}
 	
 }
