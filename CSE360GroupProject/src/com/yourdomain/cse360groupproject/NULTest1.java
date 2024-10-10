@@ -96,3 +96,4 @@ public class NULTest1 extends Application
 		alert.showAndWait();
 	}
 }
+
