@@ -22,6 +22,10 @@ public class RPWTest1 extends Application {
       // add action to send email
       Button backButton = new Button("Back");
       // add action to send back to the account list
+      backButton.setOnAction(e -> {
+  	  		AccountListTest1 AccList = new AccountListTest1();
+    		AccList.start(primaryStage);	  
+      });
       VBox vbox = new VBox(20);
       vbox.setAlignment(Pos.CENTER);
       vbox.getChildren().addAll(instructionLabel, emailBox, sendButton, backButton);
@@ -31,3 +35,5 @@ public class RPWTest1 extends Application {
       primaryStage.show();
    }
 }
+
+
