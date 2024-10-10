@@ -1,3 +1,4 @@
+//This is the screen where the admin sends an email to invite a new user
 package TEST1Phase1;
 
 import javafx.application.Application;
