@@ -1,3 +1,4 @@
+//Class used to Describe a temporary user
 package com.yourdomain.cse360groupproject;
 import java.time.LocalDateTime;
 import java.util.Random;
