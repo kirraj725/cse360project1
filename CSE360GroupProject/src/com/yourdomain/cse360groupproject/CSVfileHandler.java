@@ -56,7 +56,7 @@ public class CSVfileHandler
 			e.printStackTrace();
 		}
 	}
-	
+	// Checking to see if the csv file is empty
 	public boolean isCSVFileEmpty(String fileName) {
 	        try {
 	            Path path = Paths.get(fileName);
