@@ -1,4 +1,5 @@
-package com.yourdomain.cse360groupproject;
+//Class to describe a user
+package TEST1Phase1;
 
 public class User {
 	//attributes
