@@ -37,8 +37,11 @@ public class ARRTest1 extends Application {
 			CheckBox instructorBox = new CheckBox("Instructor");
 			
 			//set buttons for done and back
-			Button btnBack = new Button();
-			btnBack.setText("Back");
+			Button btnBack = new Button("Back");
+			btnBack.setOnAction(e -> {
+	  	  		AccountListTest1 AccList = new AccountListTest1();
+	    		AccList.start(primaryStage);	  
+			});
 			
 			// Create a label to display the message
 	        Label adminLabel = new Label();
@@ -124,3 +127,4 @@ public class ARRTest1 extends Application {
 		launch(args);
 	}
 }
+
