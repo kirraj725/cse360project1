@@ -1,5 +1,5 @@
 //This is the class that describes an Administrator
-package com.yourdomain.cse360groupproject;
+package TEST1Phase1;
 
 import java.util.List;
 import java.util.ArrayList;
