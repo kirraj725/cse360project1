@@ -28,13 +28,22 @@ public class RSTest1 extends Application
 		
 		// Buttons for Role Selection
 		Button adminButton = new Button("Admin");
-		adminButton.setOnAction(e -> System.out.println("Admin role selected."));
+		adminButton.setOnAction(e -> {
+			AccountListTest1 AccList = new AccountListTest1();
+        	AccList.start(primaryStage);
+		});
 		
         Button instructorButton = new Button("Instructor");
-        instructorButton.setOnAction(e -> System.out.println("Instructor role selected."));
+        instructorButton.setOnAction(e -> {
+        	LOSTest1 logOutPage = new LOSTest1();
+        	logOutPage.start(primaryStage);
+        });
         
         Button studentButton = new Button("Student");
-        studentButton.setOnAction(e -> System.out.println("Student role selected."));
+        studentButton.setOnAction(e -> {
+        	LOSTest1 logOutPage = new LOSTest1();
+        	logOutPage.start(primaryStage);
+        });
         
         // Creating VBox to hold buttons on top of each other
         VBox vbox = new VBox(20);
@@ -50,3 +59,4 @@ public class RSTest1 extends Application
         
 	}
 }
+
