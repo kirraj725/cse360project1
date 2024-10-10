@@ -1,3 +1,4 @@
+//main driver class
 package TEST1Phase1;
 
 //import java.sql.*;
@@ -16,6 +17,7 @@ public class CSE360GPTest1 extends Application {
 	
 	public void start(Stage primaryStage)
 	{
+		//Using csv file handler to decide if this is the very first user or a regular user
 		CSVfileHandler CSVfile = new CSVfileHandler("src/resources/csv_empty.csv");
 		if (CSVfile.isCSVFileEmpty("src/resources/csv_empty.csv")) {
 			System.out.println( "File is empty" );
@@ -40,7 +42,8 @@ public class CSE360GPTest1 extends Application {
 //		System.out.println(newUser.getLastName());
 //		System.out.println(newUser.getEmailAddress());
 //		System.out.println(newUser.getPassword());
-		
+
+	//Launching the driver method
 	public static void main(String[] args)
 	{
 		launch(args);
