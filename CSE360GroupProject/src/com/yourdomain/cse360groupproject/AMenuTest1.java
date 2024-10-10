@@ -36,19 +36,55 @@ public class AMenuTest1 extends Application {
 			Button btnReset = new Button();
 			Button btnInvitation = new Button();
 			Button btnAddRemove = new Button();
-			/*
-			Button btnSend = new Button();
 			Button btnBack = new Button();
-			*/
+			
+			
+			
+			// Button btnSend = new Button();
+		
+			
 	        btnDelete.setText("Delete User Account");
 	        btnReset.setText("Reset Password");
 	        btnInvitation.setText("Admin Invitation");
 	        btnAddRemove.setText("Add/Remove Roles");
-	        /*
-	        btnSend.setText("Send");
-	        btnBack.setText("Back");
-	        */
 	        
+	        // btnSend.setText("Send");
+	        btnBack.setText("Back");
+	        
+	        
+	        // Actions for all the different buttons
+	        btnDelete.setOnAction(e -> {
+				DUATest1 delScreen = new DUATest1();
+				delScreen.start(primaryStage);
+				
+			});
+			
+			btnReset.setOnAction(e -> {
+				RPWTest1 rpwScreen = new RPWTest1();
+				rpwScreen.start(primaryStage);
+				
+			});
+			
+			btnInvitation.setOnAction(e -> {
+				AInvTest1 admInvScreen = new AInvTest1();
+				admInvScreen.start(primaryStage);
+				
+			});
+			
+			btnAddRemove.setOnAction(e -> {
+				ARRTest1 addRemScreen = new ARRTest1();
+				addRemScreen.start(primaryStage);
+				
+			});
+			
+			
+			btnBack.setOnAction(e -> {
+				AccountListTest1 AccListScreen = new AccountListTest1();
+				AccListScreen.start(primaryStage);
+				
+			});
+			
+			
 	        //button positioning 
 	        promptTxt.setLayoutX(100);
 	        promptTxt.setLayoutY(50);
@@ -60,10 +96,10 @@ public class AMenuTest1 extends Application {
 	        btnInvitation.setLayoutY(175);
 	        btnAddRemove.setLayoutX(135);
 	        btnAddRemove.setLayoutY(225);
-	        /*
+	        
 	        btnBack.setLayoutX(165);
 	        btnBack.setLayoutY(325);
-	        */
+	        
 	      	        	        
 	        //adds the button and text prompts into the root
 	        root.getChildren().add(btnDelete);
@@ -71,10 +107,10 @@ public class AMenuTest1 extends Application {
 	        root.getChildren().add(btnInvitation);
 	        root.getChildren().add(btnAddRemove);
 	        root.getChildren().add(promptTxt);
-	        /*
-	        root.getChildren().add(btnSend);
+	        
+	        //root.getChildren().add(btnSend);
 	        root.getChildren().add(btnBack);
-	        */
+	        
 	        
 	        //HBox hbox = new HBox(btnAdmin, btnInstr, btnStud);
 	        /*
@@ -100,3 +136,6 @@ public class AMenuTest1 extends Application {
 		launch(args);
 	}
 }
+
+
+
