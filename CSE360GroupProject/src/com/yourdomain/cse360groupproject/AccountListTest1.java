@@ -61,11 +61,12 @@ public class AccountListTest1 extends Application
 	    });
 	    
 	    
-	    
+	    // VBox used to hold everything on top of eachother
 	    VBox vbox = new VBox(20);
 	    vbox.setAlignment(Pos.CENTER);
 	    vbox.getChildren().addAll(headingLabel, mngMenu, listView, logoutButton);
-	    
+
+		//showing stage & setting scene
 	    Scene scene = new Scene(vbox, 500, 500);
 	    primaryStage.setTitle("Accounts List");
         primaryStage.setScene(scene);
@@ -103,7 +104,7 @@ public class AccountListTest1 extends Application
 //			}
 //		}
 //	}
-	
+	//Used to test screen
 	public static void main(String[] args) {
         launch(args);
     }
