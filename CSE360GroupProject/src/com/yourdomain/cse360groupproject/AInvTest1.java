@@ -21,7 +21,10 @@ public class AInvTest1 extends Application {		//GUI class for sending an invitat
 	      TextField emailField = new TextField();				//textfield for user to enter email
 	      Button SendButton = new Button("Send");				//button to send information
 	      Button backButton = new Button("Back");				//back button to go back to previous page
-	      //add action
+	      backButton.setonAction(e -> {
+              AccountLisTest1 AccList = new AccountListTest1();
+		      AccList.start(primaryStage);                              
+	      });
 	      HBox emailBox = new HBox(10);					//horizontal box for email
 	      emailBox.setAlignment(Pos.CENTER);				//aligning the email box to center of pane
 	      emailBox.getChildren().addAll(EmailLabel, emailField);		//adding the email lab and email textfield to the email box
