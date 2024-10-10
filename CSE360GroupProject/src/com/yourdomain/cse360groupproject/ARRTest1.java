@@ -1,3 +1,4 @@
+//Used by Admin to add or remove roles of users.
 package TEST1Phase1;
 	
 import javafx.application.Application;
@@ -16,7 +17,7 @@ public class ARRTest1 extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			//anchor pane
+			//AnchorPane Holds all components together
 			AnchorPane root = new AnchorPane();
 			
 			//set stage title
@@ -111,7 +112,7 @@ public class ARRTest1 extends Application {
 	        });
 	        */
 
-			//scene
+			//Showing stage & setting scene
 			Scene scene = new Scene(root,400,400);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
@@ -122,7 +123,7 @@ public class ARRTest1 extends Application {
 		}
 	}
 	
-	//main to launch
+	//main to launch, used to test screen
 	public static void main(String[] args) {
 		launch(args);
 	}
