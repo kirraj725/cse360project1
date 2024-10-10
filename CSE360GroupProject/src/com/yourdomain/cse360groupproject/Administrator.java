@@ -1,3 +1,4 @@
+//This is the class that describes an Administrator
 package com.yourdomain.cse360groupproject;
 
 import java.util.List;
