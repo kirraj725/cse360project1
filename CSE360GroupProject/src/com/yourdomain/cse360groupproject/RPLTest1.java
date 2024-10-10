@@ -1,4 +1,4 @@
-// This is the login screen for new users
+// This is the reset password login screen for new users
 package TEST1Phase1;
 
 import javafx.application.Application;
@@ -96,3 +96,4 @@ public class RPLTest1 extends Application
 		alert.showAndWait();
 	}
 }
+
