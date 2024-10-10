@@ -1,3 +1,4 @@
+//This is where the admin can delete a User's account
 package TEST1Phase1;
 
 import javafx.application.Application;
@@ -11,6 +12,7 @@ import javafx.scene.control.Alert;
 
 public class DUATest1 extends Application {
    public void start(Stage primaryStage) {
+	   //Creating the delete account label and button
       Label delAccLabel = new Label("Would you like to delete this account?");
       Button delAccButton = new Button("Yes, delete this account");
       delAccButton.setOnAction(e -> {
@@ -28,7 +30,7 @@ public class DUATest1 extends Application {
       		AccList.start(primaryStage);	  
       });
       
-      
+      //Used to hold everything together
       VBox vbox = new VBox(20);
       vbox.setAlignment(Pos.CENTER);
       vbox.getChildren().addAll(delAccLabel, delAccButton, backButton);
