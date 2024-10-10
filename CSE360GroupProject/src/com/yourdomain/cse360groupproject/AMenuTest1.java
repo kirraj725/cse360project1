@@ -1,3 +1,4 @@
+// This is the different options the Admin has to manage a user's account
 package TEST1Phase1;
 	
 import javafx.application.Application;
@@ -16,6 +17,7 @@ public class AMenuTest1 extends Application {
 		try {
 			//BorderPane root = new BorderPane();
 			//anchor pane
+			//Used to hold all components together
 			AnchorPane root = new AnchorPane();
 
 			//set stage title
@@ -42,7 +44,7 @@ public class AMenuTest1 extends Application {
 			
 			// Button btnSend = new Button();
 		
-			
+			//Creating text for the buttons
 	        btnDelete.setText("Delete User Account");
 	        btnReset.setText("Reset Password");
 	        btnInvitation.setText("Admin Invitation");
@@ -121,7 +123,7 @@ public class AMenuTest1 extends Application {
 	        });
 	        */
 	        
-	        //scene
+	        //Showing stage & setting scene
 			Scene scene = new Scene(root,400,400);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
@@ -132,9 +134,9 @@ public class AMenuTest1 extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
-		launch(args);
-	}
+	//public static void main(String[] args) {
+		//launch(args);
+	//}
 }
 
 
