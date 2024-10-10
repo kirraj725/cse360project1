@@ -23,6 +23,12 @@ public class DUATest1 extends Application {
       });
       Button backButton = new Button("Back");
       // add action of back button to take back to acc list
+      backButton.setOnAction(e -> {
+    	  	AccountListTest1 AccList = new AccountListTest1();
+      		AccList.start(primaryStage);	  
+      });
+      
+      
       VBox vbox = new VBox(20);
       vbox.setAlignment(Pos.CENTER);
       vbox.getChildren().addAll(delAccLabel, delAccButton, backButton);
@@ -39,3 +45,4 @@ public class DUATest1 extends Application {
 	}
 	
 }
+
