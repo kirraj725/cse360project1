@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.security.SecureRandom;
 
 
-public class Administrator extends User{
-	public String roleInput = "";	//
-	//create arraylist to store users in
-	public List<User> userlist = new ArrayList<User>();
-	public List<String> roles = new ArrayList<String>();
+public class Administrator extends User{		//administrator class that inherits from User
+	public String roleInput = "";			
+	public List<User> userlist = new ArrayList<User>(); //create arraylist to store users in
+	public List<String> roles = new ArrayList<String>();	//create arraylist to store roles in
 	
 	
 	//constructor
@@ -18,17 +17,17 @@ public class Administrator extends User{
         //roleInput = "Administrator";
         this.userlist = new ArrayList<>();
     }
-    public Administrator() {
+    public Administrator() {		//
     	super();
     	this.userlist = new ArrayList<>();
     	
     }
 	
-	public String inviteUser(User user) {
+	public String inviteUser(User user) {	//invite a user by sending a one time code to them
 		
 		User newUser = user;
 		
-		System.out.print("Select the roles for the new user: ");
+		System.out.print("Select the roles for the new user: ");	//let admin chose the roles for the user to invite
 		//set user input equal to roleInput string
 		//string roleInput = "";
 		/*switch(roleInput) {
@@ -45,15 +44,14 @@ public class Administrator extends User{
 				roleInput = "Administrator";
 				newUser.setRole(roleInput);
 		
-		}*/
-		
+		}*/ 
 		//generate the invitation code
-		int codeLength = 6;
+		int codeLength = 6;		//generate random code for inviting the user
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         SecureRandom random = new SecureRandom();
         StringBuilder userCode = new StringBuilder(codeLength);
 
-        for (int i = 0; i < codeLength; i++) {
+        for (int i = 0; i < codeLength; i++) {			
             int index = random.nextInt(characters.length());
             userCode.append(characters.charAt(index));
         }
@@ -62,10 +60,9 @@ public class Administrator extends User{
         System.out.print(generatedCode);
         
         
-        //compare code we generated versus
+        //compare code we generated versus what user enters
 		
 	}
-	
 	
 	public void resetUserPassword(User user) {
 		
@@ -88,11 +85,10 @@ public class Administrator extends User{
 	
 	public void deleteUserAccount(User user, String roleInput) {
 		
-		
 		System.out.println("Are you sure?");
 		
-		if(roleInput == "Yes") {
-			userlist.remove(user);
+		if(roleInput == "Yes") {		//check if user wants to delete user account
+			userlist.remove(user);		//remove user from userlist
 			System.out.print("User deleted");
 			
 		}else {
@@ -100,11 +96,9 @@ public class Administrator extends User{
 			
 		}
 		//add in button control here for Yes and No options?
-		
-			
 	}
 	
-	public void listUserAccounts(List<User>userlist) {
+	public void listUserAccounts(List<User>userlist) {	//list out users in userlist
 		//System.out.print(userlist);
 		for (User user : userlist) {
             System.out.println("Name: " + user.getFirstName() + " " + user.getMiddleName() + " " + user.getLastName());
@@ -121,37 +115,24 @@ public class Administrator extends User{
             if (user.getRole() == "Administrator") {
                 System.out.println("Role: Administrator");
             }
-            System.out.println("-------------------------");
+            System.out.println("Users Listed above");
         }
     }
 
-	
-	public void addUserRole(String roleInput) {
+	public void addUserRole(String roleInput) {	//add an additional role to a user
 		switch(roleInput) {
 			case("Student"):
 				
 		}
-		
-		
 	}
-	
-	public void deleteUserRole(String roleInput, String email) {
+	public void deleteUserRole(String roleInput, String email) {	//remove a role from a user
 		switch(roleInput) {
 			case("Student"):
 			
-				
 			case("Instuctor"):
 			
 			case("Administrator"):
 			
 		}
-				
-		
 	}
-	
-	public void logout() {
-		
-		
-	}
-	
 }
