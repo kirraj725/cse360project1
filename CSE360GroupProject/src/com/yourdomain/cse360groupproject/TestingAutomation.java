@@ -1,4 +1,4 @@
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,27 +14,27 @@ public class TestingAutomation {
 	public static void main(String[] args) {
 		
 		//creating two user objects for testing
-		UserTest1 User1 = new UserTest1("jane", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", 12345, "student");
-		UserTest1 User2 = new UserTest1("Alexandra", "Alex", "", "Smith", "asmith3@asu.edu", "asmith34", 4567, "admin");
+		User User1 = new User("jane", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", "monkey", "student");
+		User User2 = new User("Alexandra", "Alex", "", "Smith", "asmith3@asu.edu", "asmith34", "monkey", "admin");
 		
 		
 		//setting first name of user1 to Jordan and running automation test on the user object
-		User1.setFirstName("Jordan");
-		userTestCase(1, User1, false, "Jordan", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", 12345, "student");
+		//User1.setFirstName("Jordan");
+		userTestCase(1, User1, false, "Jordan", "janny", "may", "doe", "janedoe@asu.edu", "jdoe4", "monkey", "student");
 	
 		//setting email of user2 to asmith367@asu.edu and the password to 9874 and running automation test on the user object
-		User2.setEmailAddress("asmith367@asu.edu");
-		User2.setPassword(9874);
-		userTestCase(2, User2, true, "Alexandra", "Alex", "", "Smith", "asmith367@asu.edu", "asmith34", 9874, "admin");
+		//User2.setEmailAddress("asmith367@asu.edu");
+		//User2.setPassword(9874);
+		userTestCase(2, User2, true, "Alexandra", "Alex", "", "Smith", "asmith367@asu.edu", "asmith34", "monkey", "admin");
 		
 		//creating a temp credentials object for testing
-		TempUserCredentialsTest1 tempCred = new TempUserCredentialsTest1();
+		TempUserCredentials tempCred = new TempUserCredentials();
 		//changing the date and running the automated test case function
 		tempCred.setDateTime();
 		tempCredTestCase (3, tempCred.isPasswordExpired(), true);
 		
-		AdministratorTest1 testadmin = new AdministratorTest1("Daniel", "Garfield", "", "Gomez", "dgomez3@asu.edu", "dgomex23", 7390, "admin");	//creating admin object
-		List<UserTest1> userlist = new ArrayList<UserTest1>();	//create test userlist
+		Administrator testadmin = new Administrator("Daniel", "Garfield", "", "Gomez", "dgomez3@asu.edu", "dgomex23", "monkey", "admin");	//creating admin object
+		List<User> userlist = new ArrayList<User>();	//create test userlist
 		userlist.add(User2);		//add user2 to test userlist
 		resetPasswordTest(testadmin, User2, false);		//call and test resetpassword function
 		listUserAccountsTest(testadmin, userlist, true);		//call and test listing the user accounts function from administrator class
@@ -49,9 +49,9 @@ public class TestingAutomation {
 	}
 	
 	//tests user object
-	private static void userTestCase (int testCase, UserTest1 user, boolean expectedPass, String expectedFirstName, String expectedPreferredName, String expectedMiddleName, String expectedLastName, String expectedEmail, String expectedUsername, int expectedPassword, String expectedRole) {
+	private static void userTestCase (int testCase, User user, boolean expectedPass, String expectedFirstName, String expectedPreferredName, String expectedMiddleName, String expectedLastName, String expectedEmail, String expectedUsername, String expectedPassword, String expectedRole) {
 		boolean pass = true; //
-	
+		
 		//checks if first name of user object are not equal to expected value
 		if (user.getFirstName() != expectedFirstName)  {
 			pass = false; 
@@ -104,7 +104,7 @@ public class TestingAutomation {
 	}
 	
 	//tests listing out user accounts for admin object
-	private static void listUserAccountsTest(AdministratorTest1 testadmin, List<UserTest1> userlist, boolean expected) {	//test function for listing elements
+	private static void listUserAccountsTest(Administrator testadmin, List<User> userlist, boolean expected) {	//test function for listing elements
 	    System.out.println("List User Accounts");
 	    testadmin.listUserAccounts(testadmin.userlist);		//call function to list user accounts for the admin
 	    
@@ -120,7 +120,7 @@ public class TestingAutomation {
 	}
 	
 	//tests reset password for admin object
-	private static void resetPasswordTest(AdministratorTest1 testadmin, UserTest1 User2, boolean expected) {	//method to test reset password method in admin class
+	private static void resetPasswordTest(Administrator testadmin, User User2, boolean expected) {	//method to test reset password method in admin class
 	    testadmin.resetUserPassword(User2);  // run reset user password method
 	    
 	    System.out.println("Reset Password");		

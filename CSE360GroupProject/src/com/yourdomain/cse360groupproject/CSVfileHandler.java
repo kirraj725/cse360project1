@@ -1,5 +1,5 @@
 // This is the csv handler class that reads and writes data between gui and csv
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -25,8 +25,6 @@ public class CSVfileHandler
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(fileName)))
 		{
-			br.readLine();
-			
 			while ((line = br.readLine()) != null)
 			{
 				String[] accountDetails = line.split(",");
@@ -41,11 +39,11 @@ public class CSVfileHandler
 	}
 	
 	// Writing data from a csv file
-	public void writeToCSV(List<String[]> data)
+	public void writeToCSV(List<String[]> list)
 	{
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true)))
 		{
-			for (String[] account : data)
+			for (String[] account : list)
 			{
 				bw.write(String.join(",", account));
 				bw.newLine();

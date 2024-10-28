@@ -1,5 +1,5 @@
 //This is the class that describes the Instructor
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 public class Instructor {
 	

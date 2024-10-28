@@ -24,7 +24,7 @@ public class TempUserCredentials {
 		String passwordString = "";
 		
 		//generates 10 integers from 0 to 9 and combines then into a string to create temporary password
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 4; i++) {
 			int num = random.nextInt(10);
 			String numStr = Integer.toString(num);
 			passwordString += numStr;

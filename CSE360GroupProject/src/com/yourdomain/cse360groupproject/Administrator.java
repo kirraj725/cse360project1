@@ -1,5 +1,5 @@
 //This is the class that describes an Administrator
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -13,12 +13,12 @@ public class Administrator extends User{		//administrator class that inherits fr
 	
 	
 	//constructor
-    public Administrator(String firstName, String preferredName, String middleName, String lastName, String emailAddress, String username, int password, String role) {
+    public Administrator(String firstName, String preferredName, String middleName, String lastName, String emailAddress, String username, String password, String role) {
         super(firstName, preferredName, middleName, lastName, emailAddress, username, password, role);
         //roleInput = "Administrator";
         this.userlist = new ArrayList<>();
     }
-    public Administrator() {		//
+    public Administrator() {		
     	super();
     	this.userlist = new ArrayList<>();
     	
@@ -45,7 +45,7 @@ public class Administrator extends User{		//administrator class that inherits fr
 				roleInput = "Administrator";
 				newUser.setRole(roleInput);
 		
-		}*/ 
+		}*/
 		//generate the invitation code
 		int codeLength = 6;		//generate random code for inviting the user
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -59,6 +59,7 @@ public class Administrator extends User{		//administrator class that inherits fr
         String generatedCode = userCode.toString();
 
         System.out.print(generatedCode);
+		return generatedCode;
         
         
         //compare code we generated versus what user enters
@@ -79,7 +80,7 @@ public class Administrator extends User{		//administrator class that inherits fr
             userCode.append(characters.charAt(index));
         }
 
-        return userCode.toString();	
+        //return userCode.toString();	
 		
 		
 	}
@@ -100,7 +101,7 @@ public class Administrator extends User{		//administrator class that inherits fr
 	}
 	
 	public void listUserAccounts(List<User>userlist) {	//list out users in userlist
-		//System.out.print(userlist);
+		System.out.print(userlist);
 		for (User user : userlist) {
             System.out.println("Name: " + user.getFirstName() + " " + user.getMiddleName() + " " + user.getLastName());
             System.out.println("Username: " + user.getUsername());

@@ -1,5 +1,5 @@
 //Class to describe a user
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 public class User {
 	//attributes
@@ -9,7 +9,7 @@ public class User {
 	private String lastName;
 	private String emailAddress;
 	private String username;
-	private int password;
+	private String password;
 	private String role;
 	private boolean isNewUser;
 	private boolean isTempPassword;
@@ -24,7 +24,7 @@ public class User {
 		lastName = "";
 		emailAddress = "";
 		username = "";
-		password = 0;
+		password = "";
 		role = "";
 		isNewUser = true;
 		isTempPassword = true;
@@ -32,7 +32,7 @@ public class User {
 	}
 	
 	//overload constructor
-	public User(String firstName, String preferredName, String middleName, String lastName, String emailAddress, String username, int password, String role) {
+	public User(String firstName, String preferredName, String middleName, String lastName, String emailAddress, String username, String password, String role) {
 		this.firstName = firstName;
 		this.preferredName = preferredName;
 		this.middleName = middleName;
@@ -45,6 +45,7 @@ public class User {
 		isTempPassword = true;
 		tempCredentials = new TempUserCredentials();
 	}
+
 	
 	//first name getter
 	public String getFirstName() {
@@ -107,12 +108,12 @@ public class User {
 	}
 	
 	//password getter
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
 						
 	//password setter
-	public void setPassword(int newPassword) {
+	public void setPassword(String newPassword) {
 		password = newPassword;
 	}
 	
@@ -125,6 +126,7 @@ public class User {
 	public void setRole(String newRole) {
 		role = newRole;
 	}
+	
 	
 }
 
