@@ -1,6 +1,9 @@
 // This is the original login screen that everyone will see when they login
 package com.yourdomain.cse360groupproject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,6 +19,11 @@ import javafx.stage.Stage;
 
 public class OrigLgnScrn extends Application
 {
+	//declare username and password field as class level variables
+		private TextField usernameField;
+		private PasswordField passwordField;
+	
+		
 	@Override
 	public void start(Stage primaryStage)
 	{
@@ -25,11 +33,11 @@ public class OrigLgnScrn extends Application
 				
 		// Username label and field for input
 		Label usernameLabel = new Label("Username:");
-		TextField usernameField = new TextField();
+		usernameField = new TextField();
 		        
 		// Password label and field for input
 		Label passwordLabel = new Label("Password:");
-		PasswordField passwordField = new PasswordField();
+		passwordField = new PasswordField();
 		
 		// Labels and fields will be arranged in a gridPane
         GridPane gridPane = new GridPane();
@@ -42,7 +50,8 @@ public class OrigLgnScrn extends Application
         
         // Creating continue button and new user button to move on to new screens
         Button continueButton = new Button("Continue");
-        continueButton.setOnAction(e -> validateAndProceed(usernameField, passwordField, primaryStage));
+        continueButton.setOnAction(e -> { validateAndProceed(usernameField, passwordField, primaryStage);
+        });
         
         Button newUserButton = new Button("I am a new user");
         newUserButton.setOnAction(e -> {
@@ -77,7 +86,13 @@ public class OrigLgnScrn extends Application
 		}
 		else
 		{
-			FinishAcc finishAccount = new FinishAcc();
+			User user = new User();
+			
+			user.setUsername(usernameField.getText());
+		    user.setPassword(passwordField.getText());
+		    user.dump();
+		    
+			FinishAcc finishAccount = new FinishAcc(user);
 			finishAccount.start(primaryStage);
 		}
 	}
@@ -91,5 +106,6 @@ public class OrigLgnScrn extends Application
 		alert.setContentText(message);
 		alert.showAndWait();
 	}
+	
 }
 

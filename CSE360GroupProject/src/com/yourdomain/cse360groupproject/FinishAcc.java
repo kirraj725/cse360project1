@@ -1,11 +1,15 @@
 // This is the screen to finish setting up a user's account
 package com.yourdomain.cse360groupproject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -14,6 +18,20 @@ import javafx.stage.Stage;
 
 public class FinishAcc extends Application
 {
+	private TextField emailField;
+	private TextField firstNameField;
+	private TextField middleNameField;
+	private TextField lastNameField;
+	private TextField preferredNameField;	
+	private User user;
+	//private User user;
+	
+	public FinishAcc(User pUser) {
+		System.out.println("FinishAcc::FinishAcc");
+    	user = pUser;
+    	user.dump();
+	}
+	
 	@Override
 	public void start(Stage primaryStage)
 	{
@@ -22,23 +40,23 @@ public class FinishAcc extends Application
 		
 		// Email label and field for input
 		Label emailLabel = new Label("Email:");
-        TextField emailField = new TextField();
+        emailField = new TextField();
         
         // First name label and field for input
         Label firstNameLabel = new Label("First Name:");
-        TextField firstNameField = new TextField();
+        firstNameField = new TextField();
         
         // Middle name label and field for input
         Label middleNameLabel = new Label("Middle Name*:");
-        TextField middleNameField = new TextField();
+        middleNameField = new TextField();
         
         // Last name label and field for input
         Label lastNameLabel = new Label("Last Name:");
-        TextField lastNameField = new TextField();
+        lastNameField = new TextField();
         
         // Preferred name label and field for input
         Label preferredNameLabel = new Label("Preferred Name:");
-        TextField preferredNameField = new TextField();
+        preferredNameField = new TextField();
         
         // Labels and fields will be arranged in a gridPane
         GridPane gridPane = new GridPane();
@@ -61,7 +79,8 @@ public class FinishAcc extends Application
         
         // Creating the continue button to move on to the next screen
         Button continueButton = new Button("Continue");
-        continueButton.setOnAction(e -> validateAndProceed(emailField, firstNameField, lastNameField, preferredNameField, primaryStage));
+        continueButton.setOnAction(e -> {validateAndProceed(emailField, firstNameField, middleNameField, lastNameField, preferredNameField, primaryStage);
+        });
         
         // Creating VBox to hold everything on top of each other
         VBox vbox = new VBox(20);
@@ -75,8 +94,9 @@ public class FinishAcc extends Application
         primaryStage.show(); 
 	}
 	
+	
 	// Ensuring there are no empty textFields
-	private void validateAndProceed(TextField emailField, TextField firstNameField, TextField lastNameField, TextField preferredNameField, Stage primaryStage)
+	private void validateAndProceed(TextField emailField, TextField firstNameField, TextField middleNameField, TextField lastNameField, TextField preferredNameField, Stage primaryStage)
 	{
 		if (emailField.getText().isEmpty() || firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || preferredNameField.getText().isEmpty())
 		{
@@ -87,9 +107,16 @@ public class FinishAcc extends Application
 			alert.showAndWait();			
 		}
 		else
-		{
+		{			
+			user.setFirstName(firstNameField.getText());
+			user.setMiddleName(middleNameField.getText());
+			user.setLastName(lastNameField.getText());
+			user.setPreferredName(preferredNameField.getText());
+			user.setEmailAddress(emailField.getText());
+			user.dump();
+			
 			String preferredName = preferredNameField.getText().isEmpty() ? firstNameField.getText() : preferredNameField.getText();
-			RoleSelection roleSel = new RoleSelection(preferredName);
+			RoleSelection roleSel = new RoleSelection(user);
 			roleSel.start(primaryStage);
 		}
 	}

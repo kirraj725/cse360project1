@@ -127,6 +127,19 @@ public class User {
 		role = newRole;
 	}
 	
+	public String[] getFormattedString() {
+		String[] fs = new String[] {firstName, middleName, lastName, preferredName, emailAddress, username, password, role};
+		
+		return fs;
+	}
+	
+	//dump for debug
+	public void dump() {
+		System.out.println("DUMP...");
+		System.out.println("first name: " + firstName + " | middle name: " + middleName + " | last name: " + lastName + " | preferred name: " + preferredName +
+				" | email address: " + emailAddress + " | username: " + username + " | password: " + password + " | role: " + role);
+	}
+	
 	
 }
 

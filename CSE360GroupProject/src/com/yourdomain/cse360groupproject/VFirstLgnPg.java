@@ -16,6 +16,7 @@ public class VFirstLgnPg extends Application
 	private TextField usernameField;
 	private PasswordField passwordField;
 	private CSVfileHandler csvhandler = new CSVfileHandler("src/resources/csv_empty.csv");
+	private User user;
 	
 	@Override
 	public void start(Stage primaryStage)
@@ -63,23 +64,7 @@ public class VFirstLgnPg extends Application
        primaryStage.show();
 	}
 	
-	// writing user data to csv
-	public void handleWriteToCSV()
-	{
-		//create an instance of csvfilehandler
-		CSVfileHandler csvhandler = new CSVfileHandler("src/resources/csv_empty.csv");
-		
-		String username = usernameField.getText();
-		String password = passwordField.getText();
-		
-		String[] userData = new String[]{
-			"", "", "", "", "", username, password, "Admin"	
-				};
-		List<String[]> dataToWrite = new ArrayList<>();
-		dataToWrite.add(userData);
-		
-		csvhandler.writeToCSV(dataToWrite);
-	}
+	
 	
 	// Ensuring there are no empty textFields and passwords match
 	private void validateAndProceed(TextField usernameField, PasswordField passwordField, PasswordField reenterPasswordField, Stage primaryStage)
@@ -94,7 +79,7 @@ public class VFirstLgnPg extends Application
 		}
 		else
 		{
-			handleWriteToCSV();
+			
 			OrigLgnScrn oriLogin = new OrigLgnScrn();
 			oriLogin.start(primaryStage);
 		}

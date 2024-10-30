@@ -1,6 +1,9 @@
 // This is the screen where the user can select their role
 package com.yourdomain.cse360groupproject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,11 +16,16 @@ public class RoleSelection extends Application
 {
 	// Variables for constructor
 	private String preferredName;
-	
+	private String role = "";
+	private CSVfileHandler csvhandler = new CSVfileHandler("src/resources/csv_empty.csv");
+	private User user;
+	//private User user;
+		
 	// Constructor to pass the preferred name and first name
-	public RoleSelection(String preferredName)
+	public RoleSelection(User pUser)
 	{
-		this.preferredName = preferredName;
+		user = pUser;
+		this.preferredName = user.getPreferredName();
 	}
 	
 	@Override
@@ -27,22 +35,41 @@ public class RoleSelection extends Application
 		Label headingLabel = new Label("Welcome " + preferredName + "! Please select role!");
 		
 		// Buttons for Role Selection
+		//Admin button
 		Button adminButton = new Button("Admin");
 		adminButton.setOnAction(e -> {
-			AccountList AccList = new AccountList();
+        	role = "Admin";
+        	System.out.println(role);	//debug
+        	user.setRole(role);
+        	// Call handleWriteToCSV with the User instance
+            handleWriteToCSV(user);
+            AccountList AccList = new AccountList();
         	AccList.start(primaryStage);
+
 		});
 		
+		//Instructor button
         Button instructorButton = new Button("Instructor");
         instructorButton.setOnAction(e -> {
         	LogoutScreen logOutPage = new LogoutScreen();
         	logOutPage.start(primaryStage);
+        	role = "Instructor";
+        	System.out.println(role);	//debug
+        	user.setRole(role);
+        	// Call handleWriteToCSV with the User instance
+            handleWriteToCSV(user);
         });
         
+        //Student button
         Button studentButton = new Button("Student");
         studentButton.setOnAction(e -> {
         	LogoutScreen logOutPage = new LogoutScreen();
         	logOutPage.start(primaryStage);
+        	role = "Student";
+        	System.out.println(role); 	//debug
+        	user.setRole(role);
+          	// Call handleWriteToCSV with the User instance
+            handleWriteToCSV(user);
         });
         
         // Creating VBox to hold buttons on top of each other
@@ -57,6 +84,24 @@ public class RoleSelection extends Application
         primaryStage.show();
         
         
+	}
+	
+	public void handleWriteToCSV(User user)
+	{
+		//create an instance of csvfilehandler
+		CSVfileHandler csvhandler = new CSVfileHandler("src/resources/csv_empty.csv");
+				
+	    String[] userData = user.getFormattedString();
+	    System.out.println("write string: " + userData);
+	    
+		List<String[]> dataToWrite = new ArrayList<>();
+		dataToWrite.add(userData);
+		
+		//dump contents
+		System.out.println("RoleSelection dumping...");
+		user.dump();
+		
+		csvhandler.writeToCSV(dataToWrite);
 	}
 }
 
