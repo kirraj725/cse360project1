@@ -51,7 +51,14 @@ public class AccountList extends Application
 			AdminMenu.start(primaryStage);
 			
 		});
-		
+
+		// Button for article Management menu
+		Button artMenu = new Button ("Article Management Menu");
+		artMenu.setOnAction(e -> {
+			ArticleMenuManagement artMenuMan = new ArticleMenuManagement();
+        		artMenuMan.start(primaryStage);
+					
+		});
 		
 		// Button to logout
 		Button logoutButton = new Button("Yes, logout of this account");
@@ -64,7 +71,7 @@ public class AccountList extends Application
 	    // VBox used to hold everything on top of eachother
 	    VBox vbox = new VBox(20);
 	    vbox.setAlignment(Pos.CENTER);
-	    vbox.getChildren().addAll(headingLabel, mngMenu, listView, logoutButton);
+	    vbox.getChildren().addAll(headingLabel, mngMenu, artMenu, listView, logoutButton);
 
 		//showing stage & setting scene
 	    Scene scene = new Scene(vbox, 500, 500);
