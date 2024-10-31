@@ -51,8 +51,8 @@ public class RoleSelection extends Application
 		//Instructor button
         Button instructorButton = new Button("Instructor");
         instructorButton.setOnAction(e -> {
-        	LogoutScreen logOutPage = new LogoutScreen();
-        	logOutPage.start(primaryStage);
+        	ArticleMenuManagement artMenuMan = new ArticleMenuManagement();
+        	artMenuMan.start(primaryStage);
         	role = "Instructor";
         	System.out.println(role);	//debug
         	user.setRole(role);
