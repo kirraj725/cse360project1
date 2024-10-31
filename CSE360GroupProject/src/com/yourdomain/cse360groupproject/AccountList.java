@@ -27,18 +27,34 @@ public class AccountList extends Application
 		listView = new TableView<>();
 		
 		// Columns for username, preferred name, and role
-		TableColumn<User, String> usernameColumn = new TableColumn<>("Username");
-		usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
-		
+		TableColumn<User, String> firstNameColumn = new TableColumn<>("First Name");
+		firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+
 		TableColumn<User, String> pnameColumn = new TableColumn<>("Preferred Name");
 		pnameColumn.setCellValueFactory(new PropertyValueFactory<>("preferredName"));
+		
+		TableColumn<User, String> middleNameColumn = new TableColumn<>("Middle Name");
+		middleNameColumn.setCellValueFactory(new PropertyValueFactory<>("middleName"));
+		
+		TableColumn<User, String> lastNameColumn = new TableColumn<>("Last Name");
+		lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+		
+		TableColumn<User, String> emailColumn = new TableColumn<>("Email Address");
+		emailColumn.setCellValueFactory(new PropertyValueFactory<>("emailAddress"));
+		
+		TableColumn<User, String> usernameColumn = new TableColumn<>("Username");
+		usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
 		
 		TableColumn<User, String> roleColumn = new TableColumn<>("Roles");
 		roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 		
 		// Add columns to the table
-		listView.getColumns().add(usernameColumn);
+		listView.getColumns().add(firstNameColumn);
 		listView.getColumns().add(pnameColumn);
+		listView.getColumns().add(middleNameColumn);
+		listView.getColumns().add(lastNameColumn);
+		listView.getColumns().add(emailColumn);
+		listView.getColumns().add(usernameColumn);
 		listView.getColumns().add(roleColumn);
 		
 		// Load data from csv
@@ -51,14 +67,15 @@ public class AccountList extends Application
 			AdminMenu.start(primaryStage);
 			
 		});
-
+		
 		// Button for article Management menu
 		Button artMenu = new Button ("Article Management Menu");
 		artMenu.setOnAction(e -> {
 			ArticleMenuManagement artMenuMan = new ArticleMenuManagement();
-        		artMenuMan.start(primaryStage);
-					
+		    artMenuMan.start(primaryStage);
+							
 		});
+		
 		
 		// Button to logout
 		Button logoutButton = new Button("Yes, logout of this account");
@@ -127,33 +144,3 @@ public class AccountList extends Application
     }
 	
 }
-
-
-
-
-
-/*// Method for loading data from csv
-private void loadDataFromCSV()
-{
-	CSVfileHandler csvHandler = new CSVfileHandler("src/resources/data_csv.csv");
-	List<String[]> usersData = csvHandler.readFromCSV();
-	
-	for (String[] userData : usersData)
-	{
-		if (userData.length >= 8)
-		{
-			String firstName = userData[0];
-			String preferredName = userData[1];
-			String middleName = userData[2];
-			String lastName = userData[3];
-			String emailAddress = userData[4];
-			String username = userData[5];
-			int password = Integer.parseInt(userData[6]);
-			String role = userData[7];
-			
-			UserTest1 user = new UserTest1(firstName, preferredName, middleName, lastName, emailAddress, username, password, role);
-			listView.getItems().add(user);
-		}
-	}
-}
-*/

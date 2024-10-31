@@ -108,13 +108,16 @@ public class FinishAcc extends Application
 		}
 		else
 		{			
+			//grab user data firstName, middleName, lastName, preferredName, email
 			user.setFirstName(firstNameField.getText());
 			user.setMiddleName(middleNameField.getText());
 			user.setLastName(lastNameField.getText());
 			user.setPreferredName(preferredNameField.getText());
 			user.setEmailAddress(emailField.getText());
+			//debug statement
 			user.dump();
 			
+			//send user and data to next gui role selection
 			String preferredName = preferredNameField.getText().isEmpty() ? firstNameField.getText() : preferredNameField.getText();
 			RoleSelection roleSel = new RoleSelection(user);
 			roleSel.start(primaryStage);

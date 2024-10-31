@@ -86,12 +86,15 @@ public class OrigLgnScrn extends Application
 		}
 		else
 		{
+			//user instance
 			User user = new User();
 			
+			//grab user data username and password
 			user.setUsername(usernameField.getText());
 		    user.setPassword(passwordField.getText());
 		    user.dump();
 		    
+		    //send data and user to the next gui finish account
 			FinishAcc finishAccount = new FinishAcc(user);
 			finishAccount.start(primaryStage);
 		}

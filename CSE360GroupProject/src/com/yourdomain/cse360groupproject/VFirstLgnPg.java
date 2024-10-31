@@ -79,7 +79,7 @@ public class VFirstLgnPg extends Application
 		}
 		else
 		{
-			
+			//send to the next gui screen original login screen
 			OrigLgnScrn oriLogin = new OrigLgnScrn();
 			oriLogin.start(primaryStage);
 		}

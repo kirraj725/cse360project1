@@ -18,6 +18,7 @@ public class Administrator extends User{		//administrator class that inherits fr
         //roleInput = "Administrator";
         this.userlist = new ArrayList<>();
     }
+    
     public Administrator() {		
     	super();
     	this.userlist = new ArrayList<>();

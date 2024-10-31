@@ -1,6 +1,6 @@
 // this is the class where a user can create a new article
 
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -13,12 +13,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import java.sql.SQLException;
+
 
 public class CreateArt extends Application
 {
+	private static DatabaseHelper databaseHelper;
 	@Override
-	public void start(Stage primaryStage)
-	{
+	public void start(Stage primaryStage) {
 		// Creating the headings
 		Label headingLabel = new Label("Create a new article!");
 		
@@ -73,9 +75,21 @@ public class CreateArt extends Application
         // Label for optional fields
         Label optionalFieldsLabel = new Label("*Optional, can be left blank");
         
-        // Creating the continue button to create the article
+        String header = uhField.getText();
+        String title = titleField.getText();
+        String description = descArea.getText();
+        String keywords = kwField.getText();
+        String body = bodyArea.getText();
+        String references = linkArea.getText();
+        String misc = miscArea.getText();
+        
+        // Creating the continue buton to create the article
         Button createButton = new Button("Create");
-        createButton.setOnAction(e -> validateAndProceed(titleField, titleField, descArea, kwField, bodyArea, primaryStage, linkArea, miscArea));
+        createButton.setOnAction(e -> {
+        	validateAndProceed(uhField, titleField, descArea, kwField, bodyArea, primaryStage, linkArea, miscArea);
+        		//databaseHelper.storeArticle(header, title, description, keywords, body, references, misc); 
+        		System.out.println("Help System setup completed.");
+        });
 		
 		// Back button
 		Button backButton = new Button("Back");

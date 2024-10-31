@@ -1,6 +1,6 @@
 // This is the menu of options that admin and instructors have when managing articles
 
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;

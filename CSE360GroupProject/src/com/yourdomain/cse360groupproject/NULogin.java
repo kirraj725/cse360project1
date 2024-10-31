@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 
 public class NULogin extends Application
 {
+	private User user;
+	
 	@Override
 	public void start(Stage primaryStage)
 	{

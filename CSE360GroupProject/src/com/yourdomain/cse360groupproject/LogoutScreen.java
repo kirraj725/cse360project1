@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class LogoutScreen extends Application {
+	private User user;
+	
    public void start(Stage primaryStage) {
       //Creating logout label & button
       Label logoutLabel = new Label("Would you like to logout of this account?");

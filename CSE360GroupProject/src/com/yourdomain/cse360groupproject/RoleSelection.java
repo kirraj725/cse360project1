@@ -38,11 +38,10 @@ public class RoleSelection extends Application
 		//Admin button
 		Button adminButton = new Button("Admin");
 		adminButton.setOnAction(e -> {
-        	role = "Admin";
-        	System.out.println(role);	//debug
-        	user.setRole(role);
-        	// Call handleWriteToCSV with the User instance
-            handleWriteToCSV(user);
+        	role = "Admin";		//once button is pressed assign role to admin
+        	System.out.println(role);		//debug
+        	user.setRole(role);		        	//set user role to role
+            handleWriteToCSV(user);		        	// Call handleWriteToCSV with the User instance
             AccountList AccList = new AccountList();
         	AccList.start(primaryStage);
 
@@ -51,25 +50,25 @@ public class RoleSelection extends Application
 		//Instructor button
         Button instructorButton = new Button("Instructor");
         instructorButton.setOnAction(e -> {
-        	ArticleMenuManagement artMenuMan = new ArticleMenuManagement();
-        	artMenuMan.start(primaryStage);
-        	role = "Instructor";
+        	role = "Instructor"; 	//once button is pressed assign role to instructor
         	System.out.println(role);	//debug
-        	user.setRole(role);
+        	user.setRole(role);		//set user role to role
         	// Call handleWriteToCSV with the User instance
             handleWriteToCSV(user);
+            ArticleMenuManagement artMenuMan = new ArticleMenuManagement();
+        	artMenuMan.start(primaryStage);
         });
         
         //Student button
         Button studentButton = new Button("Student");
         studentButton.setOnAction(e -> {
-        	LogoutScreen logOutPage = new LogoutScreen();
-        	logOutPage.start(primaryStage);
-        	role = "Student";
+        	role = "Student";		//once button is pressed assign role to student
         	System.out.println(role); 	//debug
-        	user.setRole(role);
+        	user.setRole(role);		//set user role to role
           	// Call handleWriteToCSV with the User instance
             handleWriteToCSV(user);
+            LogoutScreen logOutPage = new LogoutScreen();
+        	logOutPage.start(primaryStage);
         });
         
         // Creating VBox to hold buttons on top of each other
@@ -94,6 +93,7 @@ public class RoleSelection extends Application
 	    String[] userData = user.getFormattedString();
 	    System.out.println("write string: " + userData);
 	    
+	    //New array list dataToWrite grab userData
 		List<String[]> dataToWrite = new ArrayList<>();
 		dataToWrite.add(userData);
 		
@@ -101,6 +101,7 @@ public class RoleSelection extends Application
 		System.out.println("RoleSelection dumping...");
 		user.dump();
 		
+		//send dataToWrite data to WriteToCSV
 		csvhandler.writeToCSV(dataToWrite);
 	}
 }

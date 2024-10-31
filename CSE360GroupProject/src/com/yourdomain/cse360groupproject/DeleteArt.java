@@ -1,6 +1,6 @@
 // this is the class where a user can delete a new article
 
-package TEST1Phase1;
+package com.yourdomain.cse360groupproject;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
