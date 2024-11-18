@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
-public class SysHelp extends Application
+public class SysHelpInstr extends Application
 {
 	@Override
     public void start(Stage primaryStage)
@@ -31,8 +31,8 @@ public class SysHelp extends Application
         // back button to go back to Student Menu
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-        	StudentMenu StuMenu = new StudentMenu();
-        	StuMenu.start(primaryStage);
+        	SearchBasic instrMenu = new SearchBasic();
+        	instrMenu.start(primaryStage);
         });
         
         // create a vbox to put everything on top of each other

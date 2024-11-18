@@ -10,7 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class SearchScreen extends Application
+public class SearchScreenInstr extends Application
 {
 	@Override
 	public void start(Stage primaryStage)
@@ -57,8 +57,8 @@ public class SearchScreen extends Application
         // button to go back to StudentMenu
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-        	StudentMenu StuMenu = new StudentMenu();
-        	StuMenu.start(primaryStage);
+        	SearchBasic InstrMenu = new SearchBasic();
+        	InstrMenu.start(primaryStage);
         });
         
      // Layout for Content Level

@@ -55,8 +55,8 @@ public class RoleSelection extends Application
         	user.setRole(role);		//set user role to role
         	// Call handleWriteToCSV with the User instance
             handleWriteToCSV(user);
-            ArticleMenuManagement artMenuMan = new ArticleMenuManagement();
-        	artMenuMan.start(primaryStage);
+            InstructorMenu instructorMenu = new InstructorMenu();
+        	instructorMenu.start(primaryStage);
         });
         
         //Student button
@@ -67,8 +67,8 @@ public class RoleSelection extends Application
         	user.setRole(role);		//set user role to role
           	// Call handleWriteToCSV with the User instance
             handleWriteToCSV(user);
-            LogoutScreen logOutPage = new LogoutScreen();
-        	logOutPage.start(primaryStage);
+            StudentMenu stdMenu	 = new StudentMenu();
+        	stdMenu.start(primaryStage);
         });
         
         // Creating VBox to hold buttons on top of each other

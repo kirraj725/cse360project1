@@ -10,50 +10,50 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class StudentMenu extends Application
+public class SearchBasic extends Application
 {
 	@Override
     public void start(Stage primaryStage)
     {
 		// creating a heading
-		Label header = new Label("Student Menu");
+		Label header = new Label("Search Menu");
 		
-		// button to logout
-		Button logoutButton = new Button("Logout");
-		logoutButton.setOnAction(e -> {
-	    	LogoutScreen logoutScrn = new LogoutScreen();
-	    	logoutScrn.start(primaryStage);
+		// button to go back to instructor menu
+		Button backButton = new Button("Back");
+		backButton.setOnAction(e -> {
+	    	InstructorMenu instructorMenu = new InstructorMenu();
+	    	instructorMenu.start(primaryStage);
 	    });
 		
 		// button to search for articles
 		Button searchButton = new Button("Search Articles");
 		searchButton.setOnAction(e -> {
-			SearchScreen srchScrn = new SearchScreen();
+			SearchScreenInstr srchScrn = new SearchScreenInstr();
 			srchScrn.start(primaryStage);
         });
 		
 		// button to get help with system (generic message)
 		Button systemHelpButton = new Button("System Help");
 		systemHelpButton.setOnAction(e -> {
-			SysHelp systemHelp = new SysHelp();
+			SysHelpInstr systemHelp = new SysHelpInstr();
 			systemHelp.start(primaryStage);
         });
 		
 		// button to give suggestions (specific message)
 		Button suggestionButton = new Button("Leave a Suggestion");
 		suggestionButton.setOnAction(e -> {
-			SuggScreen suggScrn = new SuggScreen();
+			SuggScreenInstr suggScrn = new SuggScreenInstr();
 	    	suggScrn.start(primaryStage);
         });
 
 		// creating VBox to hold buttons on top of each other
 		VBox vbox = new VBox(15); // 15 px spacing
-        vbox.getChildren().addAll(header, searchButton, systemHelpButton, suggestionButton, logoutButton);
+        vbox.getChildren().addAll(header, searchButton, systemHelpButton, suggestionButton, backButton);
         vbox.setAlignment(Pos.CENTER);
         
         // setting scene and showing stage
         Scene scene = new Scene(vbox, 400, 300);
-        primaryStage.setTitle("Student Main Menu");
+        primaryStage.setTitle("Search Menu");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

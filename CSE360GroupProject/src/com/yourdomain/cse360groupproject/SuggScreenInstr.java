@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class SuggScreen extends Application
+public class SuggScreenInstr extends Application
 {
 	@Override
     public void start(Stage primaryStage)
@@ -52,8 +52,8 @@ public class SuggScreen extends Application
         // button to go back to StudentMenu
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-        	StudentMenu instrMenu = new StudentMenu();
-        	instrMenu.start(primaryStage);
+        	SearchBasic StuMenu = new SearchBasic();
+        	StuMenu.start(primaryStage);
         });
         
         // creating HBox to hold label and textArea together

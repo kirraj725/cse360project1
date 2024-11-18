@@ -10,13 +10,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class SearchScreen extends Application
+public class GroupSearch extends Application
 {
 	@Override
 	public void start(Stage primaryStage)
 	{
 		// creating a heading
-		Label header = new Label("Search Articles");
+		Label header = new Label("Search Groups");
 		
 		// searching by content
 		Label contentLabel = new Label("Select Content Level:");
@@ -27,21 +27,15 @@ public class SearchScreen extends Application
         CheckBox allCheck = new CheckBox("All");
         allCheck.setSelected(true); 
         
-        // searching by group
-        Label groupLabel = new Label("Select Group:");
-        ComboBox<String> groupDropdown = new ComboBox<>();
-        groupDropdown.getItems().addAll("All", "Assignment 1", "Assignment 2", "Final Project"); // Example groups
-        groupDropdown.setValue("All");
-        
         // searching by keyword
-        Label keywordLabel = new Label("Search by Title, Author, or Abstract:");
-        TextField keywordField = new TextField();
-        keywordField.setPromptText("Enter keywords, title, or author...");
+        Label groupLabel = new Label("Search by Group Name:");
+        TextField groupField = new TextField();
+        groupField.setPromptText("Enter group name...");
         
         // searching by ID
-        Label idLabel = new Label("Search by Unique Identifier:");
-        TextField idField = new TextField();
-        idField.setPromptText("Enter unique ID...");
+        Label specialGroupLabel = new Label("Search by Special Group Name:");
+        TextField specialGroupField = new TextField();
+        specialGroupField.setPromptText("Enter special group name...");
         
         // search button
         Button searchButton = new Button("Search");
@@ -57,8 +51,8 @@ public class SearchScreen extends Application
         // button to go back to StudentMenu
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-        	StudentMenu StuMenu = new StudentMenu();
-        	StuMenu.start(primaryStage);
+        	GroupMenu grpMenu = new GroupMenu();
+        	grpMenu.start(primaryStage);
         });
         
      // Layout for Content Level
@@ -66,8 +60,8 @@ public class SearchScreen extends Application
         contentLevelBox.setPadding(new Insets(10));
 
         // Layout for Group and Search Inputs
-        VBox searchInputs = new VBox(10, contentLabel, contentLevelBox, groupLabel, groupDropdown, 
-                                      keywordLabel, keywordField, idLabel, idField);
+        VBox searchInputs = new VBox(10, contentLabel, contentLevelBox, 
+                                      groupLabel, groupField, specialGroupLabel, specialGroupField);
         searchInputs.setAlignment(Pos.CENTER_LEFT);
         searchInputs.setPadding(new Insets(20));
 

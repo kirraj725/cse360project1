@@ -10,13 +10,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class StudentMenu extends Application
+public class InstructorMenu extends Application
 {
 	@Override
     public void start(Stage primaryStage)
     {
 		// creating a heading
-		Label header = new Label("Student Menu");
+		Label header = new Label("Instructor Menu");
 		
 		// button to logout
 		Button logoutButton = new Button("Logout");
@@ -26,34 +26,34 @@ public class StudentMenu extends Application
 	    });
 		
 		// button to search for articles
-		Button searchButton = new Button("Search Articles");
-		searchButton.setOnAction(e -> {
-			SearchScreen srchScrn = new SearchScreen();
-			srchScrn.start(primaryStage);
+		Button searchMenuButton = new Button("Search Menu");
+		searchMenuButton.setOnAction(e -> {
+			SearchBasic searchBasicScrn = new SearchBasic();
+			searchBasicScrn.start(primaryStage);
         });
 		
 		// button to get help with system (generic message)
-		Button systemHelpButton = new Button("System Help");
-		systemHelpButton.setOnAction(e -> {
-			SysHelp systemHelp = new SysHelp();
-			systemHelp.start(primaryStage);
+		Button articleMenuButton = new Button("Article Menu");
+		articleMenuButton.setOnAction(e -> {
+			ArticleMenuManagementInstr articleMnMgn = new ArticleMenuManagementInstr();
+			articleMnMgn.start(primaryStage);
         });
 		
 		// button to give suggestions (specific message)
-		Button suggestionButton = new Button("Leave a Suggestion");
-		suggestionButton.setOnAction(e -> {
-			SuggScreen suggScrn = new SuggScreen();
-	    	suggScrn.start(primaryStage);
+		Button groupMenuButton = new Button("Group Menu");
+		groupMenuButton.setOnAction(e -> {
+			GroupMenu groupMn = new GroupMenu();
+	    	groupMn.start(primaryStage);
         });
 
 		// creating VBox to hold buttons on top of each other
 		VBox vbox = new VBox(15); // 15 px spacing
-        vbox.getChildren().addAll(header, searchButton, systemHelpButton, suggestionButton, logoutButton);
+        vbox.getChildren().addAll(header, searchMenuButton, articleMenuButton, groupMenuButton, logoutButton);
         vbox.setAlignment(Pos.CENTER);
         
         // setting scene and showing stage
         Scene scene = new Scene(vbox, 400, 300);
-        primaryStage.setTitle("Student Main Menu");
+        primaryStage.setTitle("Instructor Main Menu");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
